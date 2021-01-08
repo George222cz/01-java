@@ -14,21 +14,26 @@ import java.util.Objects;
  * @author Roman
  */
 public class Event implements Comparable<Event>, Serializable {
-
-    private Date date;
-    private String title;
-  
-
-    @Override
-    public int compareTo(Event o) {
-        return date.compareTo(o.date);
-    }
+    private final Date date;
+    private final String title;
+    private String text;
 
     public Event(Date date, String title) {
         this.date = date;
         this.title = title;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getText() {
+        return text;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -44,19 +49,10 @@ public class Event implements Comparable<Event>, Serializable {
         }
         return true;
     }
-    
-    private String text;
-  
-    public Date getDate() {
-        return date;
-    }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getText() {
-        return text;
+    @Override
+    public int compareTo(Event event) {
+        return date.compareTo(event.date);
     }
 
     @Override

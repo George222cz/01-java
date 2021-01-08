@@ -41,24 +41,24 @@ public class INPTP_Clean00 {
         System.out.println("");
         
         Calendar calendar = new Calendar();
-        calendar.addEv(new Event(new Date(117, 6, 1), "1-1"));
-        calendar.addEv(new Event(new Date(117, 6, 2), "2-1"));
-        calendar.addEv(new Event(new Date(117, 6, 3), "3-1"));
-        calendar.addEv(new Event(new Date(117, 6, 1), "1-2"));
-        calendar.addEv(new Event(new Date(117, 6, 1), "1-3"));
-        calendar.addEv(new Event(new Date(117, 6, 1), "1-4"));
+        calendar.addEvent(new Event(new Date(117, 6, 1), "1-1"));
+        calendar.addEvent(new Event(new Date(117, 6, 2), "2-1"));
+        calendar.addEvent(new Event(new Date(117, 6, 3), "3-1"));
+        calendar.addEvent(new Event(new Date(117, 6, 1), "1-2"));
+        calendar.addEvent(new Event(new Date(117, 6, 1), "1-3"));
+        calendar.addEvent(new Event(new Date(117, 6, 1), "1-4"));
 
-        for (EventSet c1 : calendar) {
-            System.out.println(c1.date);
-            System.out.println(c1.eventSet);
+        for (EventSet eventSet : calendar) {
+            System.out.println(eventSet.date);
+            System.out.println(eventSet.eventSet);
         }
 
         calendar.DeleteAll(new Date(117, 6, 1));
         System.out.println("");
 
-        for (EventSet c1 : calendar) {
-            System.out.println(c1.date);
-            System.out.println(c1.eventSet);
+        for (EventSet eventSet : calendar) {
+            System.out.println(eventSet.date);
+            System.out.println(eventSet.eventSet);
         }
 
     }

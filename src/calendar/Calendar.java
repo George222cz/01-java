@@ -13,30 +13,20 @@ import java.util.Iterator;
  * @author rodi0878
  */
 public class Calendar implements Iterable<EventSet>{
-
-    @Override
-    public Iterator<EventSet> iterator() {
-        return calendar.iterator();
-    }
-    
-    
-    private Tree<EventSet> calendar;
+    private final Tree<EventSet> calendar;
 
     public Calendar() {
         calendar = new Tree<>();
     }
-    
-    
-    
-    public void addEv(Event ev) {
-        EventSet es = new EventSet(ev.getDate());
-        if (calendar.contaix(es)) {
-            es = calendar.get(es);
+
+    public void addEvent(Event event) {
+        EventSet eventSet = new EventSet(event.getDate());
+        if (calendar.contain(eventSet)) {
+            eventSet = calendar.get(eventSet);
         } else {
-            calendar.add(es);
+            calendar.add(eventSet);
         }
-        
-        es.eventSet.add(ev);
+        eventSet.eventSet.add(event);
     }
     
     public EventSet eventsList(Date date) {
@@ -46,6 +36,9 @@ public class Calendar implements Iterable<EventSet>{
     public void DeleteAll(Date date) {
         calendar.erase(new EventSet(date));
     }
-    
-    
+
+    @Override
+    public Iterator<EventSet> iterator() {
+        return calendar.iterator();
+    }
 }

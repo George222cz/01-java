@@ -46,8 +46,6 @@ public class Tree<E extends Comparable<? super E>> implements Iterable<E> {
 
     }
 
-    
-
     public Tree() {
     }
     
@@ -136,7 +134,7 @@ public class Tree<E extends Comparable<? super E>> implements Iterable<E> {
         }
     }
 
-    public boolean contaix(E data) {
+    public boolean contain(E data) {
         Node<E> traveller = root;
 
         while (traveller != null) {
